@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def top
-    @users = User.order(created_at: :desc)
+    @q = User.ransack(params[:q])
+    @users = @q.result(distinct: true)
   end
 end
