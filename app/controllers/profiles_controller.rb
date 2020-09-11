@@ -16,10 +16,14 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
+    if @profile.update(profile.params)
+      redirect_to root_url, notice: '自己紹介を変更しました。'
+    else
+      render :edit
+    end
   end
 
   private
