@@ -26,8 +26,12 @@
 
 <ul class="sidenav" id="mobile-links">
   <% if user_signed_in? %>
-  <li><%= link_to '自己紹介', new_profile_path %></li>
-  <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+  <% if current_user.profile %>
+    <li><%= link_to '既に自己紹介しました。', root_path %></li>
+  <% else %>
+    <li><%= link_to '自己紹介', new_profile_path %></li>
+  <% end %>
+    <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
   <% else %>
     <li>
       <%= link_to '登録', new_user_registration_path %>
