@@ -7,7 +7,11 @@
     <ul class="right hide-on-med-and-down">
       <% if user_signed_in? %>
         <li>
-          <%= link_to '自己紹介', new_profile_path %>
+          <% if current_user.profile %>
+            <%= link_to '既に自己紹介しました。', root_path %>
+          <% else %>
+            <%= link_to '自己紹介', new_profile_path %>
+          <% end %>
         </li>
         <li>
           <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>

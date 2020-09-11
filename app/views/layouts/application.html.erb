@@ -12,8 +12,17 @@
 
   <body>
     <%= render 'shared/header' %>
+    <% if flash[:notice] %>
+      <div class="flash"><%= flash[:notice] %></div>
+    <% end %>
     <div class="container">
       <%= yield %>
     </div>
   </body>
 </html>
+
+<script>
+  $(function() {
+    setTimeout("$('.flash').fadeOut('slow')", 2000);
+  });
+</script>

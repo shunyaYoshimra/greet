@@ -15,5 +15,15 @@
  */
  @import "materialize/components/color-variables";
  $primary-color: color("blue", "lighten-2") !default;
-  $secondary-color: color("indigo", "base") !default;
-@import 'materialize';
+ $secondary-color: color("indigo", "base") !default;
+ @import 'materialize';
+
+.flash{
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  padding: 20px 0;
+  color: #fff;
+  background-color: #333;
+  width: 100%;
+}

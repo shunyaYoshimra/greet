@@ -1,10 +1,12 @@
-<%= search_form_for @q, url: root_path do |f| %>
-  <%= f.label :language, "学んでいる言語" %>
-  <%= f.search_field :language_cont %>
-  <label>
-  <button class="waves-effect waves-light btn pink"><i class="material-icons left">search</i>検索</button>
-  <%= f.submit "検索", id: 'serch-btn', class: 'hide' %>
-  </label>
+<% if user_signed_in? %>
+  <%= search_form_for @q, url: root_path do |f| %>
+    <%= f.label :language, "学んでいる言語" %>
+    <%= f.search_field :language_cont %>
+    <label>
+    <button class="waves-effect waves-light btn pink"><i class="material-icons left">search</i>検索</button>
+    <%= f.submit "検索", id: 'serch-btn', class: 'hide' %>
+    </label>
+  <% end %>
 <% end %>
 
 <ul class="collapsible">
