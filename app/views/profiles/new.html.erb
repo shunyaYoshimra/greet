@@ -1,0 +1,18 @@
+<%= form_with model: @profile, local: true do |f| %>
+  <%= f.label :content, '自己紹介' %>
+  <%= f.text_area :content, class: 'profile-content' %>
+  <div class="row">
+    <div class="col s6">
+      <%= f.label :language, '主要言語' %>
+      <%= f.text_field :language %>
+    </div>
+    <div class="col s6">
+      <%= f.label :github, 'GithubアカウントのURL' %>
+      <%= f.text_field :github %>
+    </div>
+  </div>
+  <label for="new-profile">
+    <button class="btn-floating pulse indigo"><i class="material-icons">add</i></button>
+    <%= f.submit id: 'new-profile', class: 'hide' %>
+  </label>
+<% end %>
