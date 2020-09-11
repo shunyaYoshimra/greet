@@ -1,14 +1,23 @@
+<%= search_form_for @q, url: root_path do |f| %>
+  <%= f.label :language, "学んでいる言語" %>
+  <%= f.search_field :language_cont %>
+  <label>
+  <button class="waves-effect waves-light btn pink"><i class="material-icons left">search</i>検索</button>
+  <%= f.submit "検索", id: 'serch-btn', class: 'hide' %>
+  </label>
+<% end %>
+
 <ul class="collapsible">
-  <% @users.each do |user| %>
+  <% @profiles.each do |profile| %>
   <li>
-    <div class="collapsible-header"><i class="material-icons">person</i><%= user.username%></div>
+    <div class="collapsible-header"><i class="material-icons">person</i><%= profile.user.username%></div>
     <div class="collapsible-body">
-      <% if user.profile %>
-        <p><%= user.profile.content %></p>
+      <% if profile %>
+        <p><%= profile.content %></p>
         <div class="valign-wrapper">
-          <span class="chip"><%= user.profile.language %></span>
-          <a href="<%= user.profile.github %>"><%= image_tag 'GitHub-Mark.png', height: '50px', width: '50px' %></a>
-          <% if user == current_user %>
+          <span class="chip"><%= profile.language %></span>
+          <a href="<%= profile.github %>"><%= image_tag 'GitHub-Mark.png', height: '50px', width: '50px' %></a>
+          <% if profile.user == current_user %>
             <%= link_to edit_profile_path(current_user.profile) do %>
               <button class="waves-effect waves-light btn pink edit-btn"><i class="material-icons left">edit</i>編集</button>
             <% end %>
