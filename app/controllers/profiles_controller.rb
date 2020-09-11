@@ -19,7 +19,7 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    if @profile.update(profile.params)
+    if @profile.update(profile_params)
       redirect_to root_url, notice: '自己紹介を変更しました。'
     else
       render :edit
