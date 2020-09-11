@@ -1,2 +1,32 @@
-<h1>Home#top</h1>
-<p>Find me in app/views/home/top.html.erb</p>
+<ul class="collapsible">
+  <% @users.each do |user| %>
+  <li>
+    <div class="collapsible-header"><i class="material-icons">person</i><%= user.username%></div>
+    <div class="collapsible-body">
+      <% if user.profile %>
+        <p><%= user.profile.content %></p>
+        <div class="valign-wrapper">
+          <span class="chip"><%= user.profile.language %></span>
+          <a href="<%= user.profile.github %>"><%= image_tag 'GitHub-Mark.png', height: '50px', width: '50px' %></a>
+          <% if user == current_user %>
+            <%= link_to edit_profile_path(current_user.profile) do %>
+              <button class="waves-effect waves-light btn pink edit-btn"><i class="material-icons left">edit</i>編集</button>
+            <% end %>
+          <% end %>
+        </div>
+      <% else %>
+        <span>まだプロフィールが作成されていません。</span>
+      <% end %>
+    </div>
+  </li>
+  <% end %>
+</ul>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<script>
+$(document).ready(function(){
+    $('.collapsible').collapsible();
+  });
+</script>

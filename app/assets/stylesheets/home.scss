@@ -1,3 +1,49 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.edit-btn {
+  transform: translateX(700px);
+}
+
+@media (max-width: 1300px) {
+  .edit-btn {
+    transform: translateX(520px);
+  }
+}
+
+@media (max-width: 1200px) {
+  .edit-btn {
+    transform: translateX(500px);
+  }
+}
+
+@media (max-width: 1000px) {
+  .edit-btn {
+    transform: translateX(420px);
+  }
+}
+
+@media (max-width: 800px) {
+  .edit-btn {
+    transform: translateX(320px);
+  }
+}
+
+@media (max-width: 670px) {
+  .edit-btn {
+    transform: translateX(280px);
+  }
+}
+
+@media (max-width: 550px) {
+  .edit-btn {
+    transform: translateX(160px);
+  }
+}
+
+@media (max-width: 480px) {
+  .edit-btn {
+    transform: translateX(90px);
+  }
+}
+
